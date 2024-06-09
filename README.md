@@ -10,6 +10,7 @@ Consiste en un programa de almacenamiento de libros y autores en una base de dat
 
  - [Uso de la API gutendex](https://gutendex.com/)
  - Uso de Base de Datos Postgresql para la persistencia de los datos
+ - Se Uso MAVEN para las dependencias
  - Dependencias usadas: 
     - Spring Boot DevTools
     - JDBC API 
