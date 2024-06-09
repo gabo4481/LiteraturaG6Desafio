@@ -13,8 +13,9 @@ public interface LibrosRepository extends JpaRepository<Libros,Long> {
     @Query("SELECT a FROM Libros a WHERE LOWER(a.titulo) LIKE LOWER(concat('%', :nombre, '%'))")
     Optional<Libros> comprobarExistenciaLibro(String nombre);
 
-    @Query("SELECT l FROM Libros l WHERE UPPER(l.idioma) = UPPER(:idioma)")
+    @Query("SELECT l FROM Libros l WHERE :idioma = '' OR UPPER(l.idioma) = UPPER(:idioma)")
     List<Libros> mostrarListaPorIdioma(@Param("idioma") String idioma);
+
 
 
 

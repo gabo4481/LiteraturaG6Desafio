@@ -91,25 +91,28 @@ public class Principal {
     private void mostrarLibrosPorIdioma() {
         System.out.println("\nIngresa el idioma a listar ( 1.Español , 2.Ingles , 3.idioma Desconocido)\n ");
         var idiomaEleccion = teclado.nextInt();
-        String idiomaEleccion2 = "" ;
+        String idiomaEleccion2 = "";
         switch (idiomaEleccion) {
             case 1:
-                idiomaEleccion2 = "es";
+                idiomaEleccion2 = "ESPAÑOL";
                 break;
             case 2:
-                idiomaEleccion2 = "en";
+                idiomaEleccion2 = "INGLES";
                 break;
             case 3:
-                idiomaEleccion2 = "";
+                idiomaEleccion2 = "DESCONOCIDO";
                 break;
             default:
                 System.out.println("Eleccion incorrecta de idioma\n");
         }
         libros = librosService.mostrarTodosLibrosIdioma(idiomaEleccion2);
-
-        libros.forEach(System.out::println);
-
+        if (libros.isEmpty()) {
+            System.out.println("\nNo hay libros de ese idioma registrado.\n");
+        } else {
+            libros.forEach(System.out::println);
+        }
     }
+
 
     private void mostrarLibros() {
         libros = librosService.mostrarTodosLibros();

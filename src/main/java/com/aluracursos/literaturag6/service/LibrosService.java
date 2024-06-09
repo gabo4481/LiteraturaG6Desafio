@@ -19,12 +19,7 @@ public class LibrosService {
     private LibrosRepository librosRepository;
 
     public List<Libros> mostrarTodosLibrosIdioma(String idioma){
-        List<Libros> libros = librosRepository.mostrarListaPorIdioma(idioma);
-        if (libros.isEmpty()) {
-            System.out.println("\nNo hay libros de ese idioma registrado.\n");
-        }
-        return libros;
-
+        return librosRepository.mostrarListaPorIdioma(idioma);
     }
 
     public List<Libros> mostrarTodosLibros() {
