@@ -75,7 +75,7 @@ public class Principal {
     }
 
     private void buscarAutoresPorAnio() {
-        System.out.println("\nIngresa el año para buscar autores");
+        System.out.println("\nIngresa el año para buscar autores: ");
         Integer anio = teclado.nextInt();
 
         autores = autoresService.buscarAutoresPorAnio(anio);
@@ -89,7 +89,7 @@ public class Principal {
     }
 
     private void mostrarLibrosPorIdioma() {
-        System.out.println("\nIngresa el idioma a listar ( 1.Español , 2.Ingles , 3.idioma Desconocido ");
+        System.out.println("\nIngresa el idioma a listar ( 1.Español , 2.Ingles , 3.idioma Desconocido)\n ");
         var idiomaEleccion = teclado.nextInt();
         String idiomaEleccion2 = "" ;
         switch (idiomaEleccion) {
@@ -103,12 +103,11 @@ public class Principal {
                 idiomaEleccion2 = "";
                 break;
             default:
-                System.out.println("Eleccion incorrecta de idioma");
+                System.out.println("Eleccion incorrecta de idioma\n");
         }
-
         libros = librosService.mostrarTodosLibrosIdioma(idiomaEleccion2);
-        libros.forEach(System.out::println);
 
+        libros.forEach(System.out::println);
 
     }
 
@@ -133,7 +132,7 @@ public class Principal {
 
         if (datosLibrosOptional.isPresent()) {
             DatosLibros datosLibros = datosLibrosOptional.get();
-            System.out.println("Libro encontrado: " + datosLibros.titulo());
+            System.out.println("\nLibro encontrado: " + datosLibros.titulo());
 
             // Obtener el nombre del autor
             String nombreAutor = datosLibros.autor() != null ? datosLibros.autor().get(0).nombres() : "Desconocido";
@@ -148,7 +147,7 @@ public class Principal {
                 Optional<Autores> existenciaAutores = autoresService.comprobarExistenciaDeAutor(nombreAutor);
 
                 if (existenciaAutores.isPresent()) {
-                    System.out.println("*** Autor ya existe en la base de datos. ***");
+                    System.out.println("\n*** Autor ya existe en la base de datos. ***");
                     autor = existenciaAutores.get(); // Usar el autor existente
                 }
                 try {
@@ -160,18 +159,18 @@ public class Principal {
                         libro.setAutores(autor);
                         librosService.guardarLibro(libro);
                     } else {
-                        System.out.println("*** Libro ya existe en la base de datos. ***");
+                        System.out.println("\n*** Libro ya existe en la base de datos. ***");
                     }
                 } catch (Exception e) {
-                    System.out.println("*** Error al intentar guardar el libro y/o autor: " + e.getMessage() + " ***");
+                    System.out.println("\n*** Error al intentar guardar el libro y/o autor: " + e.getMessage() + " ***");
                 }
 
             } else {
-                System.out.println("*** Entendido!. ***");
+                System.out.println("\n*** Entendido!. ***");
             }
 
         } else {
-            System.out.println("*** Libro no encontrado. ***");
+            System.out.println("\n*** Libro no encontrado. ***");
         }
     }
 }

@@ -27,6 +27,9 @@ public class AutoresService {
         return autoresRepository.buscarAutoresVivosEnAnio(anio);
     }
 
+
+
+
     public Optional<Autores> comprobarExistenciaDeAutor(String nombre){
         return autoresRepository.comprobarExistenciaAutor(nombre);
     }
