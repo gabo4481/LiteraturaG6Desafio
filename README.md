@@ -16,6 +16,10 @@ Consiste en un programa de almacenamiento de libros y autores en una base de dat
     - JDBC API 
     - Spring Data JPA
     - PostgreSQL Driver
+      
+## Screenshots
+
+![App Screenshot](https://github.com/gabo4481/LiteraturaG6Desafio/blob/main/Captura.PNG)
 
 
 ## Base de Dato Posible errores
